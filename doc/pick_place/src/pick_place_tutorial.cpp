@@ -39,7 +39,8 @@
 
 // MoveIt
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
-#include <moveit/move_group_interface/move_group_interface.h>
+#include <moveit/moveit_cpp/moveit_cpp.h>
+//#include <moveit/move_group_interface/move_group_interface.h>
 
 // TF2
 #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
@@ -78,7 +79,7 @@ void closedGripper(trajectory_msgs::JointTrajectory& posture)
   // END_SUB_TUTORIAL
 }
 
-void pick(moveit::planning_interface::MoveGroupInterface& move_group)
+void pick(moveit::planning_interface::MoveItCpp& move_group)
 {
   // BEGIN_SUB_TUTORIAL pick1
   // Create a vector of grasps to be attempted, currently only creating single grasp.
@@ -138,7 +139,7 @@ void pick(moveit::planning_interface::MoveGroupInterface& move_group)
   // END_SUB_TUTORIAL
 }
 
-void place(moveit::planning_interface::MoveGroupInterface& group)
+void place(moveit::planning_interface::MoveItCpp& group)
 {
   // BEGIN_SUB_TUTORIAL place
   // TODO(@ridhwanluthra) - Calling place function may lead to "All supplied place locations failed. Retrying last
@@ -277,7 +278,7 @@ int main(int argc, char** argv)
 
   ros::WallDuration(1.0).sleep();
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
-  moveit::planning_interface::MoveGroupInterface group("panda_arm");
+  moveit::planning_interface::MoveItCpp group("panda_arm");
   group.setPlanningTime(45.0);
 
   addCollisionObjects(planning_scene_interface);
