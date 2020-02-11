@@ -140,6 +140,9 @@ Step 4: Use Motion Planning with the Panda
 * In the **MotionPlanning** window under the **Planning** tab, press the **Plan** button. You
   should be able to see a visualization of the arm moving and a trail.
 
+.. note::
+  Currently, the start state is ignored when following these steps. The planner instead starts from the current robot state. Changing the 'Start State:' drop-down in the Query box of the Planning tab can change this, but the behavior of that interface is also confusing.
+
 .. image:: rviz_plugin_planned_path.png
    :width: 700px
 
